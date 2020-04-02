@@ -10,9 +10,9 @@
 
 2. 문자열을 정수형으로 변환
 > C 언어에서 표현하는 2진수 8진수 10진수 16진수를 생각하고 정수형만 받을 수 있도록 했다.
-> > int a = 숫자 에서 오류가 나지 않는 형태만들 추려서 넣었다고 생각한다.
-> > > 놀랍게도 int a = +-+-+0b010010은 정상작동한다.
 > 대소문자 구분은 없이 했다.
+> > int a = 숫자 에서 오류가 나지 않는 형태만을 추려냈다고 생각한다.
+> > > 놀랍게도 int a = +-+-+0b010010은 정상작동한다.
 > 1. 받아들이는 문자열에서 맨 앞에 나오는 white space는 전부 넘기고
 > 2. '+'나 '-'가 나올 시 '+'와 '-'가 교대로 나오는 한 전부 다 받아들이고 부호를 정한다.
 > 3. 기본은 10진수, 수가 시작되고 0이 맨 앞에 나오면 8진수, 0b나 0B가 맨 앞에 나오면 2진수, 0x나 0X가 맨 앞에 나오면 16진수로 생각하고 정수형으로 바꾼다.
@@ -31,37 +31,42 @@ errorcase의 내용을 바꾸면 당연히 출력되는 error의 내용도 바�
 ---
 ## testcase
 
-./factorization 468461
-7 66923
-./factorization 0x4dDfF
-3 5 4253
-./factorization 0xffffFFFB
-4294967291
-./factorization +-+-+0b100000
-2
+    ./factorization 468461
+    7 66923
+    ./factorization 0x4dDfF
+    3 5 4253
+    ./factorization 0xffffFFFB
+    4294967291
+    ./factorization +-+-+0b100000
+    2
 
 예외처리
 
 인자가 하나가 아닐시
-./factorization
-This program allows only one argument.
-./factorization 54 0615
-This program allows only one argument.
+
+    ./factorization
+    This program allows only one argument.
+    ./factorization 54 0615
+    This program allows only one argument.
 
 음수나 32bit unsigned integer로 표현이 불가능 할 때
-./factorization +-+054153
-This program only accepts "32bit unsigned integer" greater than 1.
-./factorization 0x100000000
-This program only accepts "32bit unsigned integer" greater than 1.
+
+    ./factorization +-+054153
+    This program only accepts "32bit unsigned integer" greater than 1.
+    ./factorization 0x100000000
+    This program only accepts "32bit unsigned integer" greater than 1.
 
 8진수에서 8이상의 수
-./factorization 0846746
-This program allows only one integer that can be expressed in C language to be an argument.
+
+    ./factorization 0846746
+    This program allows only one integer that can be expressed in C language to be an argument.
 
 2진수에서 2이상의 수
-./factorization 0b10012
-This program allows only one integer that can be expressed in C language to be an argument.
+
+    ./factorization 0b10012
+    This program allows only one integer that can be expressed in C language to be an argument.
 
 소수
-./factorization 0.05
-This program allows only one integer that can be expressed in C language to be an argument.
+
+    ./factorization 0.05
+    This program allows only one integer that can be expressed in C language to be an argument.
