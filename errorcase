@@ -1,0 +1,3 @@
+This program allows only one argument.
+This program allows only one integer that can be expressed in C language to be an argument.
+This program only accepts "32bit unsigned integer" greater than 1.
